@@ -3,7 +3,7 @@
     int sensor = 12; 
     int led1 = 8;
     int LedMatrix[] = {0,0};
-    #define code1  13141 // I used a old LED strip remote and when the power
+    #define IRcode  13141 // I used a old LED strip remote and when the power
                          // is pressed, that is the code number that it sent
     IRrecv irrecv(sensor);
     decode_results results;
@@ -20,7 +20,7 @@
       if (irrecv.decode(&results)) {
         unsigned int value = results.value;
         switch(value) {
-           case code1:
+           case IRcode:
            if(LedMatrix[1] == 1) {        
                 digitalWrite(led1, LOW);   
                 LedMatrixled[1] = 0;          
